@@ -37,6 +37,35 @@ Copyright 2019
 
     -f,--jmeter         File name to output generated project JMeter.
 
+    -o,--override       Override project JMeter generate if exists.
+
+## Example Use
+
+Open Postman:
+
+![Postman App](screenshot/postman.png)
+
+Export project:
+
+![Postman App](screenshot/postman-export.png)
+
+Save file:
+
+![Postman App](screenshot/postman-location.png)
+
+Convert project exported:
+
+```bash
+convert-postman-jmeter -p test-api-without-environments.postman_collection.json
+```
+
+![Postman App](screenshot/export.png)
+
+Open project generate with JMeter App:
+
+![Postman App](screenshot/jmeter.png)
+
+  
 ## Known Issues
 
 For issues create o find in [issues page](https://github.com/sercheo87/convert-postman-jmeter/issues).

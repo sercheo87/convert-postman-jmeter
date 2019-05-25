@@ -22,4 +22,4 @@ const options = {
   override: argv.o
 };
 
-convertPostmanJmeter.convertProject(options);
+convertPostmanJmeter.convert(options);
