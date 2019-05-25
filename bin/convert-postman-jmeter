@@ -2,8 +2,6 @@
 
 'use strict';
 
-console.log('hello');
-
 var os = require('os'),
   convertPostmanJmeter = require('../lib/convert-postman-jmeter'),
   argv = require('yargs')

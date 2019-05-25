@@ -21,11 +21,15 @@
   "author": "chancaysergio@gmail.com",
   "license": "MIT",
   "preferGlobal": true,
-  "os" : [ "darwin", "linux", "win32" ],
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
   "homepage": "https://github.com/sercheo87/convert-postman-jmeter#readme",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/sercheo87/convert-postman-jmeter"
+    "type": "git",
+    "url": "https://github.com/sercheo87/convert-postman-jmeter"
   },
   "bin": {
     "convert-postman-jmeter": "./bin/convert-postman-jmeter"
