@@ -1,5 +1,6 @@
 # convert-postman-jmeter
 
+[![CircleCI](https://circleci.com/gh/sercheo87/convert-postman-jmeter/tree/master.svg?style=svg)](https://circleci.com/gh/sercheo87/convert-postman-jmeter/tree/master)
 ![GitHub issues](https://img.shields.io/github/issues/sercheo87/convert-postman-jmeter.svg)
 ![npm](https://img.shields.io/npm/v/3.svg)
 ![NPM](https://img.shields.io/npm/l/1.svg)
