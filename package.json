@@ -1,0 +1,35 @@
+{
+  "name": "convert-postman-jmeter",
+  "version": "1.0.0",
+  "description": "Covert files Postman Project to JMeter Project",
+  "main": "./lib/convert-postman-jmeter",
+  "scripts": {
+    "start": "node ./bin/convert-postman-jmeter",
+    "test": "mocha"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "keywords": [
+    "converter",
+    "jmeter",
+    "postman",
+    "cli",
+    "command"
+  ],
+  "author": "chancaysergio@gmail.com",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "convert-postman-jmeter": "./bin/convert-postman-jmeter"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  },
+  "dependencies": {
+    "mustache": "^3.0.1",
+    "yargs": "^13.2.4"
+  }
+}
