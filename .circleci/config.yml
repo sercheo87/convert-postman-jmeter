@@ -43,3 +43,7 @@ jobs:
       - deploy:
           name: Publish package
           command: npm publish
+          filters:
+            branches:
+              only:
+                - master
