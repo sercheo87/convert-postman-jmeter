@@ -23,8 +23,8 @@ jobs:
     working_directory: ~/repo
     steps:
         - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+            name: Authenticate with registry
+            command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
         - deploy:
             name: Publish package
             command: npm publish
@@ -39,8 +39,8 @@ jobs:
     working_directory: ~/repo
     steps:
         - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+            name: Authenticate with registry
+            command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
         - deploy:
             name: Publish package
             command: npm publish
