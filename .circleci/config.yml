@@ -3,38 +3,28 @@ jobs:
   build:
     docker:
       - image: circleci/node:7.10
-
     working_directory: ~/repo
-
     steps:
         - checkout
-
         - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-
+            keys:
+              - v1-dependencies-{{ checksum "package.json" }}
+              - v1-dependencies-
         - run: npm install
-
         - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
+            paths:
+              - node_modules
+            key: v1-dependencies-{{ checksum "package.json" }}
         - run: npm test
 
   deploy-stage:
     docker:
       - image: circleci/node:7.10
-      
     working_directory: ~/repo
-
     steps:
-
         - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
-
         - deploy:
             name: Publish package
             command: npm publish
@@ -46,14 +36,11 @@ jobs:
   deploy-prod:
     docker:
       - image: circleci/node:7.10
-
     working_directory: ~/repo
-
     steps:
         - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
-
         - deploy:
             name: Publish package
             command: npm publish
