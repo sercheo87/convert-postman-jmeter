@@ -10,7 +10,8 @@
   },
   "files": [
     "lib",
-    "bin"
+    "bin",
+    "templates"
   ],
   "keywords": [
     "converter",
