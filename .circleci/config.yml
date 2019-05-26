@@ -17,18 +17,15 @@ jobs:
             paths:
               - node_modules
             key: v1-dependencies-{{ checksum "package.json" }}
-        - run: mkdir ./reports
         - run: npm test
         - run:
             name: 'Runing test'
             command: |
-              mkdir ./reports/mocha
               ./node_modules/.bin/mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml
             when: always
         - run:
             name: eslint
             command: |
-              mkdir ./reports/eslint
               ./node_modules/.bin/eslint ./lib --format junit --output-file ./reports/eslint/eslint.xml
             when: always
         - store_test_results:
