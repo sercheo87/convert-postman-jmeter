@@ -18,8 +18,9 @@ jobs:
               - node_modules
             key: v1-dependencies-{{ checksum "package.json" }}
         - run: mkdir ~/junit
+        - run: npm install mocha -g
         - run:
-            command: npm test
+            command: mocha test --reporter mocha-junit-reporter
             environment:
               MOCHA_FILE: ~/junit/results.xml
             when: always
