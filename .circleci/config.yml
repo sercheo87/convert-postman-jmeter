@@ -25,7 +25,6 @@ jobs:
             environment:
               MOCHA_FILE: /home/circleci/repo/junit/results.xml
             when: always
-        - run: ls -la ~/repo/junit
         - store_test_results:
             path: ~/repo/junit/
         - store_artifacts:
