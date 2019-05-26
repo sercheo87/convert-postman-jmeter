@@ -24,7 +24,7 @@ jobs:
               MOCHA_FILE: ~/junit/test-results.xml
             when: always
         - store_test_results:
-          path: ~/junit
+            path: ~/junit
 
   deploy-stage:
     docker:
