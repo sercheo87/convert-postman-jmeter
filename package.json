@@ -5,7 +5,7 @@
   "main": "./lib/convert-postman-jmeter",
   "scripts": {
     "start": "node ./bin/convert-postman-jmeter",
-    "test": "mocha --reporter mocha-junit-reporter",
+    "test": "mocha test --reporter mocha-junit-reporter",
     "lint": "eslint ./lib --fix"
   },
   "files": [
