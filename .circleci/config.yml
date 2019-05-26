@@ -22,11 +22,11 @@ jobs:
         - run:
             name: 'Runing test'
             command: ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter --reporter-options mochaFile="$PWD/junit/results.xml"
-        - run: ls -la "$PWD/junit"
+        - run: ls -la /junit
         - store_test_results:
-            path: "$PWD/junit"
+            path: /junit
         - store_artifacts:
-            path: "$PWD/junit"
+            path: /junit
 
   deploy-stage:
     docker:
