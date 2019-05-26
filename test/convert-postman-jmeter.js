@@ -1,5 +1,6 @@
-var convertPostmanJmeter = require('../lib/convert-postman-jmeter.js');
-var expect = require('chai').expect;
+const convertPostmanJmeter = require('../lib/convert-postman-jmeter.js');
+const expect = require('chai').expect;
+const fs = require('fs');
 
 describe('Constructor', function() {
   context('validating options', function() {
@@ -20,7 +21,7 @@ describe('Constructor', function() {
         projectPostman: 'test/resources/test-api-without-environments.postman_collection.json',
         projectJmeter: 'test/resources/test-api-without-environments.postman_collection.jmx',
         override: true
-    };
+      };
       expect(convertPostmanJmeter.convert(options)).to.equal(true);
     });
   });

@@ -12,11 +12,33 @@ jobs:
               - v1-dependencies-{{ checksum "package.json" }}
               - v1-dependencies-
         - run: npm install
+        - run: npm run lint
         - save_cache:
             paths:
               - node_modules
             key: v1-dependencies-{{ checksum "package.json" }}
         - run: npm test
+        - run:
+            name: 'Runing test'
+            command: |
+              ./node_modules/.bin/nyc ./node_modules/.bin/mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml
+            when: always
+        - run:
+            name: eslint
+            command: |
+              ./node_modules/.bin/eslint ./lib --format junit --output-file ./reports/eslint/eslint.xml
+            when: always
+        - store_test_results:
+            path: ./reports
+        - store_artifacts:
+            path: ./reports/mocha/test-results.xml
+        - store_artifacts:
+            path: ./reports/eslint/eslint.xml
+        - run:
+            name: 'Generate pack'
+            command: npm pack
+        - store_artifacts:
+            path: ./convert-postman-jmeter-1.0.1.tgz
 
   deploy-stage:
     docker:
@@ -33,7 +55,7 @@ jobs:
             command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
         - deploy:
             name: Publish package
-            command: npm publish
+            command: npm publish --tag beta
             filters:
               branches:
                 only:
@@ -66,9 +88,9 @@ workflows:
       - build:
           filters:
             branches:
+              only: /feature-.*/
               ignore:
                 - develop
-                - /feature-.*/
       - deploy-stage:
           requires:
             - build
