@@ -76,11 +76,8 @@ jobs:
             command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
         - deploy:
             name: Publish package
-            command: npm publish
-            filters:
-              branches:
-                only:
-                  - master
+            command: npm Publish
+
 workflows:
   version: 2
   build-deploy:
