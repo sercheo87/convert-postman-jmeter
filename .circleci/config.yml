@@ -56,10 +56,6 @@ jobs:
         - deploy:
             name: Publish package
             command: npm publish --tag beta
-            filters:
-              branches:
-                only:
-                  - master
 
   deploy-prod:
     docker:
