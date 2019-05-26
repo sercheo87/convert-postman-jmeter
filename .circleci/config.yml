@@ -75,7 +75,7 @@ jobs:
             name: Authenticate with registry
             command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
         - deploy:
-            name: Publish package
+            name: 'Publish package'
             command: npm Publish
 
 workflows:
