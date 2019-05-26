@@ -17,13 +17,14 @@ jobs:
             paths:
               - node_modules
             key: v1-dependencies-{{ checksum "package.json" }}
-        - run: mkdir ~/repo/junit
         - run: npm test
         - run:
             name: 'Runing test'
-            command: ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=/home/circleci/repo/junit/results.xml
+            command: |
+              mkdir ~/repo/junit
+              ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./junit/results.xml
             environment:
-              MOCHA_FILE: /home/circleci/repo/junit/results.xml
+              MOCHA_FILE: ./junit/results.xml
             when: always
         - store_test_results:
             path: ~/repo/junit/
