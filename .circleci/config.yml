@@ -79,11 +79,10 @@ workflows:
   build-deploy:
     jobs:
       - build:
-          # filters:
-            # branches:
-              # only: /feature-.*/
-              # ignore:
-                # - develop
+           filters:
+             branches:
+               ignore:
+                 - develop
       - deploy-stage:
           requires:
             - build
