@@ -23,8 +23,11 @@ jobs:
       - image: circleci/node:7.10
     working_directory: ~/repo
     steps:
-        - attach_workspace:
-            at: ~/repo
+        - checkout
+        - restore_cache:
+            keys:
+              - v1-dependencies-{{ checksum "package.json" }}
+              - v1-dependencies-
         - run:
             name: Authenticate with registry
             command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
@@ -41,13 +44,14 @@ jobs:
       - image: circleci/node:7.10
     working_directory: ~/repo
     steps:
-        - run:
-            name: Authenticate with registry
-            command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+        - checkout
         - restore_cache:
             keys:
               - v1-dependencies-{{ checksum "package.json" }}
               - v1-dependencies-
+        - run:
+            name: Authenticate with registry
+            command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
         - deploy:
             name: Publish package
             command: npm publish
