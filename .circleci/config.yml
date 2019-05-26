@@ -34,6 +34,11 @@ jobs:
             path: ./reports/mocha/test-results.xml
         - store_artifacts:
             path: ./reports/eslint/eslint.xml
+        - run:
+            name: 'Generate pack'
+            command: npm pack
+        - store_artifacts:
+            path: ./convert-postman-jmeter-1.0.1.tgz
 
   deploy-stage:
     docker:
