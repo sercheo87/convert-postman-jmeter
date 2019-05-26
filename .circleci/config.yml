@@ -28,7 +28,7 @@ jobs:
         - run:
             name: eslint
             command: |
-              mkdir ~/reports/eslint
+              mkdir ./reports/eslint
               ./node_modules/.bin/eslint ./lib --format junit --output-file ./reports/eslint/eslint.xml
             when: always
         - store_test_results:
