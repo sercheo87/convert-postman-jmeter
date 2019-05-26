@@ -23,14 +23,14 @@ jobs:
             name: 'Runing test'
             command: |
               mkdir ~/reports/mocha
-              ./node_modules/mocha/bin/mocha test --recursive --timeout=10000 --exit --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml
+              ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml
             when: always
-        - run:
-            name: eslint
-            command: |
-              mkdir ~/reports/eslint
-              ./node_modules/.bin/eslint ./ --format junit --output-file ./reports/eslint/eslint.xml
-            when: always
+        # - run:
+        #     name: eslint
+        #     command: |
+        #       mkdir ~/reports/eslint
+        #       ./node_modules/.bin/eslint ./ --format junit --output-file ./reports/eslint/eslint.xml
+        #     when: always
         - store_test_results:
             path: ~/reports
         - store_artifacts:
