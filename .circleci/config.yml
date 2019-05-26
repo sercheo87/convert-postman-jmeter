@@ -74,9 +74,9 @@ workflows:
       - build:
           filters:
             branches:
+              only: /feature-.*/
               ignore:
                 - develop
-                - /feature-.*/
       - deploy-stage:
           requires:
             - build
