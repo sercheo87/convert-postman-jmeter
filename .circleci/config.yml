@@ -11,8 +11,8 @@ jobs:
             keys:
               - v1-dependencies-{{ checksum "package.json" }}
               - v1-dependencies-
-        - run: npm run lint
         - run: npm install
+        - run: npm run lint
         - save_cache:
             paths:
               - node_modules
