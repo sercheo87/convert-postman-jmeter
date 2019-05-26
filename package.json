@@ -5,7 +5,8 @@
   "main": "./lib/convert-postman-jmeter",
   "scripts": {
     "start": "node ./bin/convert-postman-jmeter",
-    "test": "mocha"
+    "test": "mocha --reporter mocha-junit-reporter",
+    "lint": "eslint ./lib --fix"
   },
   "files": [
     "lib",
@@ -39,7 +40,10 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.13.0",
+    "mocha": "^6.1.4",
+    "mocha-junit-reporter": "^1.22.0"
   },
   "dependencies": {
     "mustache": "^3.0.1",

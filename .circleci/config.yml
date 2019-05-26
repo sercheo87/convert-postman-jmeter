@@ -11,12 +11,20 @@ jobs:
             keys:
               - v1-dependencies-{{ checksum "package.json" }}
               - v1-dependencies-
+        - run: npm run lint
         - run: npm install
         - save_cache:
             paths:
               - node_modules
             key: v1-dependencies-{{ checksum "package.json" }}
-        - run: npm test
+        - run: mkdir ~/junit
+        - run:
+            command: npm test
+            environment:
+              MOCHA_FILE: ~/junit/test-results.xml
+            when: always
+        - store_test_results:
+          path: ~/junit
 
   deploy-stage:
     docker:
@@ -33,7 +41,7 @@ jobs:
             command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
         - deploy:
             name: Publish package
-            command: npm publish
+            command: npm publish --tag beta
             filters:
               branches:
                 only:
