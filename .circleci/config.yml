@@ -17,18 +17,18 @@ jobs:
             paths:
               - node_modules
             key: v1-dependencies-{{ checksum "package.json" }}
-        - run: mkdir ~/junit
+        - run: mkdir ~/repo/junit
         - run:
             name: 'Runing test'
             command: npm test
             environment:
-              MOCHA_FILE: ~/junit/results.xml
+              MOCHA_FILE: ~/repo/junit/results.xml
             when: always
-        - run: ls -la ~/junit
+        - run: ls -la ~/repo/junit
         - store_test_results:
-            path: ~/junit/
+            path: ~/repo/junit/
         - store_artifacts:
-            path: ~/junit
+            path: ~/repo/junit
 
   deploy-stage:
     docker:
