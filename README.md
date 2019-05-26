@@ -9,6 +9,9 @@
 
 This tool convert projects [Postman](https://www.getpostman.com) to [JMeter](https://jmeter.apache.org)
 
+- [NPM Site](https://www.npmjs.com/package/convert-postman-jmeter)
+- [Wiki](https://sercheo87.github.io/convert-postman-jmeter/)
+
 ## Installation
 
 ```bash
@@ -68,4 +71,3 @@ Open project generate with JMeter App:
 ## Known Issues
 
 For issues create o find in [issues page](https://github.com/sercheo87/convert-postman-jmeter/issues).
-
