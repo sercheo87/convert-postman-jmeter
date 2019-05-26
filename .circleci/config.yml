@@ -19,7 +19,7 @@ jobs:
             key: v1-dependencies-{{ checksum "package.json" }}
         - run: mkdir ~/junit
         - run:
-            command: mocha test --reporter mocha-junit-reporter
+            command: npm test
             environment:
               MOCHA_FILE: ~/junit/results.xml
             when: always
