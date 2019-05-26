@@ -18,17 +18,15 @@ jobs:
         - run: npm test
 
   deploy-stage:
-    # docker:
-    #   - image: circleci/node:7.10
+    docker:
+      - image: circleci/node:7.10
     working_directory: ~/repo
     steps:
+        - attach_workspace:
+            at: ~/repo
         - run:
             name: Authenticate with registry
             command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
-        # - restore_cache:
-        #     keys:
-        #       - v1-dependencies-{{ checksum "package.json" }}
-        #       - v1-dependencies-
         - deploy:
             name: Publish package
             command: npm publish
