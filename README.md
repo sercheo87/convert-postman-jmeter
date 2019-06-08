@@ -6,6 +6,7 @@
 ![NPM](https://img.shields.io/npm/l/1.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/sercheo87/convert-postman-jmeter.svg)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/sercheo87/convert-postman-jmeter.svg)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=convert-postman-jmeter&metric=alert_status)](https://sonarcloud.io/dashboard?id=convert-postman-jmeter)
 
 This tool convert projects [Postman](https://www.getpostman.com) to [JMeter](https://jmeter.apache.org)
 
