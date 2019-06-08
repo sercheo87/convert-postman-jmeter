@@ -51,10 +51,11 @@ jobs:
               eval ./sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.projectKey=convert-postman-jmeter \
               -Dsonar.sources=. \
               -Dsonar.sourceEncoding=US-ASCII \
-              -Dsonar.exclusions=node_modules/** \
+              -Dsonar.exclusions=node_modules/**,sonar-scanner-3.3.0.1492-linux/** \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.projectVersion=${CIRCLE_BRANCH} \
               -Dsonar.login=${SONARQUBE_TOKEN} $SONAR_SCANNER_OPTS_CUSTOM
+              -Dsonar.organization=sercheo87-github
 
   deploy-stage:
     docker:
