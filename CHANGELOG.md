@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.0.3 (Jun 7, 2019)
+
+- Reduction technical debt.
+
 ## v1.0.2 (May 27, 2019)
 
 - Support migration to Http Header Manager on JMeter.
