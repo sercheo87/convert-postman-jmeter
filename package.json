@@ -1,6 +1,6 @@
 {
   "name": "convert-postman-jmeter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Convert files Postman Project to JMeter Project",
   "main": "./lib/convert-postman-jmeter",
   "scripts": {
