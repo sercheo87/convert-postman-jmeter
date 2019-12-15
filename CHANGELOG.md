@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.0.6 (Dec 15, 2019)
+
+- Publish release.
+
 ## v1.0.5 (Jun 7, 2019)
 
 - Adjust CI.
