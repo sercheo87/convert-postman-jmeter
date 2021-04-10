@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.0.7 (Dec 15, 2019)
+
+- Fix for empty request postman collection #1.
+
 ## v1.0.6 (Dec 15, 2019)
 
 - Publish release.
