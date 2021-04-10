@@ -1,27 +1,41 @@
 {
-    "env": {
-        "es6": true,
-        "node": true
-    },
-    "extends": "google",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "rules": {
-        "indent": ["error", 2],
-        "require-jsdoc": ["error", {
-            "require": {
-                "FunctionDeclaration": true,
-                "MethodDefinition": false,
-                "ClassDeclaration": false,
-                "ArrowFunctionExpression": false,
-                "FunctionExpression": false
-            }
-        }]
-    }
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": "google",
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "max-len": [
+      2,
+      {
+        "code": 240,
+        "tabWidth": 4,
+        "ignoreUrls": true
+      }
+    ],
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": false
+        }
+      }
+    ]
+  }
 }
