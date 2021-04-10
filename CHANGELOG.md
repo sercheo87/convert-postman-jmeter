@@ -1,5 +1,10 @@
 # Change Log
 
+## v1.0.7 (Apr 10, 2021)
+
+- Fix for empty request postman.
+- Support each files on folder by convention name postman file collection *.postman_collection.json #12.
+
 ## v1.0.6 (Dec 15, 2019)
 
 - Publish release.

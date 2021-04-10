@@ -31,8 +31,9 @@ Options:
   -p, --postman   Load project postman                                [required]
   -j, --jmeter    Output project JMeter
   -o, --override  Override project JMeter                       [default: false]
+  -b, --batch     Export all projects postman from folder path     [default: ""]
 
-Copyright 2019
+Copyright 2021
 ```
 
 ### Options
@@ -42,6 +43,8 @@ Copyright 2019
     -f,--jmeter         File name to output generated project JMeter.
 
     -o,--override       Override project JMeter generate if exists.
+
+    -b,--batch          Export all projects postman from folder path.
 
 ## Example Use
 
@@ -61,6 +64,10 @@ Convert project exported:
 
 ```bash
 convert-postman-jmeter -p test-api-without-environments.postman_collection.json
+```
+
+```bash
+convert-postman-jmeter -b /projects-postman/
 ```
 
 ![Postman App](screenshot/export.png)

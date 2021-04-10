@@ -4,23 +4,27 @@
 
 const os = require('os');
 const argv = require('yargs')
-  .usage('Usage: $0 -p [file] -j [file]')
-  .alias('p', 'postman')
-  .describe('p', 'Load project postman')
-  .alias('j', 'jmeter')
-  .describe('j', 'Output project JMeter')
-  .alias('o', 'override')
-  .describe('o', 'Override project JMeter')
-  .default('o', false)
-  .demandOption(['p'])
-  .epilog('Copyright 2019').argv;
+    .scriptName('convert-postman-jmeter')
+    .usage('Usage: $0 -p [file] -j [file]')
+    .alias('p', 'postman')
+    .describe('p', 'Load project postman')
+    .alias('j', 'jmeter')
+    .describe('j', 'Output project JMeter')
+    .alias('o', 'override')
+    .describe('o', 'Override project JMeter')
+    .default('o', false)
+    .alias('b', 'batch')
+    .describe('b', 'Export all projects postman from folder path by name *.postman_collection.json')
+    .default('b', '')
+    .epilog('Copyright 2021').argv;
 
 const convertPostmanJmeter = require('../lib/convert-postman-jmeter');
 
 const options = {
-  projectPostman: argv.p,
-  projectJmeter: argv.j,
-  override: argv.o
+    projectPostman: argv.p,
+    projectJmeter: argv.j,
+    override: argv.o,
+    batchFolder: argv.b,
 };
 
 convertPostmanJmeter.convert(options);
