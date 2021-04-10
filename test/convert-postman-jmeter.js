@@ -40,7 +40,7 @@ describe('Constructor', function() {
     });
 
     it('without options', function() {
-      expect(convertPostmanJmeter.convert(undefined)).to.equal(false);
+      expect(convertPostmanJmeter.convert()).to.equal(false);
     });
 
     it('with file empty value on options', function() {
