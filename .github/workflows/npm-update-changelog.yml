@@ -11,7 +11,6 @@ jobs:
 
       - name: Update changelog
         run: |
-          npm install github-release-notes
           export GREN_GITHUB_TOKEN=${{ secrets.GIT_TOKEN }}
           gren changelog --override
       - name: Create Pull Request
