@@ -1,12 +1,14 @@
-name: Node.js Publish
+name: Node.js Build
 
 on:
   push:
     branches:
       - master
+      - feature-ci
   pull_request:
     branches:
       - master
+      - feature-ci
   page_build:
   release:
     types:
@@ -34,17 +36,3 @@ jobs:
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.projectKey=convert-postman-jmeter
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: npm install
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}

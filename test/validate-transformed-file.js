@@ -6,7 +6,6 @@ const assert = require('assert');
 const filePostmanProject = 'test/resources/test-api-without-environments.postman_collection.json';
 // eslint-disable-next-line max-len
 const fileJmeterProject = 'test/resources/test-api-without-environments.postman_collection.jmx';
-const headerLine = '<stringProp name="Header.name">Content-Type</stringProp>';
 
 beforeEach(function() {
   if (fs.existsSync(fileJmeterProject)) {
@@ -20,14 +19,16 @@ beforeEach(function() {
 
   convertPostmanJmeter.convert(options);
 });
+afterEach(function() {
+  if (fs.existsSync(fileJmeterProject)) {
+    fs.unlinkSync(fileJmeterProject);
+  }
+});
 
 describe('Convert tool and parsing', function() {
   context('parsing file transformed', function() {
     it('Validate exists header managers', function() {
       assert.ok(fs.existsSync(fileJmeterProject));
-      if (fs.existsSync(fileJmeterProject)) {
-        fs.unlinkSync(fileJmeterProject);
-      }
     });
     it('Validate methods generated', function() {
       fs.readFile(fileJmeterProject, function(err, data) {

@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.0.8 (Apr 10, 2021)
+
+- Use GitHub Action CI
+
 ## v1.0.7 (Apr 10, 2021)
 
 - Fix for empty request postman.
