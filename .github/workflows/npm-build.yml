@@ -34,6 +34,5 @@ jobs:
           -Dsonar.sources=.
           -Dsonar.exclusions=node_modules/**,sonar-scanner-3.3.0.1492-linux/**
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          -Dsonar.organization=sercheo87
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.projectKey=convert-postman-jmeter
