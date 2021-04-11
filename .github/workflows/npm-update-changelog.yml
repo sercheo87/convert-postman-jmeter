@@ -12,7 +12,7 @@ jobs:
       - name: Update changelog
         run: |
           export GREN_GITHUB_TOKEN=${{ secrets.GIT_TOKEN }}
-          gren changelog --override
+          ./node_modules/.bin/gren changelog --override
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
