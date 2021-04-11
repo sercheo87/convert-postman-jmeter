@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./bin/convert-postman-jmeter",
     "test": "mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml",
-    "lint": "eslint ./lib --format junit --output-file ./reports/eslint/eslint.xml"
+    "lint": "./node_modules/.bin/nyc ./node_modules/.bin/mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml"
   },
   "files": [
     "lib",
