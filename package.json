@@ -5,8 +5,8 @@
   "main": "./lib/convert-postman-jmeter",
   "scripts": {
     "start": "node ./bin/convert-postman-jmeter",
-    "test": "mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml",
-    "lint": "./node_modules/.bin/nyc ./node_modules/.bin/mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml"
+    "test": "./node_modules/.bin/nyc ./node_modules/.bin/mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml",
+    "lint": "./node_modules/.bin/eslint ./lib --format junit --output-file ./reports/eslint/eslint.xml"
   },
   "files": [
     "lib",
