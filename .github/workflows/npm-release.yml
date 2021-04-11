@@ -1,0 +1,41 @@
+name: Node.js Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test
+      - name: Setup sonarqube
+        uses: warchant/setup-sonar-scanner@v3
+      - name: Run sonarqube
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: sonar-scanner
+          -Dsonar.sources=.
+          -Dsonar.exclusions=node_modules/**,sonar-scanner-3.3.0.1492-linux/**
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.projectKey=convert-postman-jmeter
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Automatic generation release.
+          draft: false
+          prerelease: false
