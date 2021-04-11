@@ -11,7 +11,8 @@ on:
       - feature-ci
   pull_request:
     branches:
-      - main
+      - master
+      - feature-ci
   # Also trigger on page_build, as well as release created events
   page_build:
   release:
