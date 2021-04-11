@@ -39,7 +39,7 @@ jobs:
 
             [1]: https://github.com/sercheo87/convert-postman-jmeter
           branch: update-changelog
-          base: ${{ steps.vars.outputs.base_branch }}
+          base: master
           labels: |
             report
             automated pr
