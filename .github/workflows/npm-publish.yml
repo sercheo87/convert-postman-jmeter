@@ -23,6 +23,18 @@ jobs:
       - run: npm install
       - run: npm run lint
       - run: npm run test
+      - name: Setup sonarqube
+        uses: warchant/setup-sonar-scanner@v3
+      - name: Run sonarqube
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: sonar-scanner
+          -Dsonar.sources=.
+          -Dsonar.exclusions=node_modules/**,sonar-scanner-3.3.0.1492-linux/**
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.projectKey=convert-postman-jmeter
+      - run: npm pack
 
   publish-npm:
     needs: build
