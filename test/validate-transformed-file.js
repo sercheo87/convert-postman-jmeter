@@ -24,13 +24,10 @@ beforeEach(function() {
 describe('Convert tool and parsing', function() {
   context('parsing file transformed', function() {
     it('Validate exists header managers', function() {
-      fs.readFile(fileJmeterProject, function(err, data) {
-        if (err) assert.ok(false);
-        assert.ok(data.includes(headerLine));
-        if (fs.existsSync(fileJmeterProject)) {
-          fs.unlinkSync(fileJmeterProject);
-        }
-      });
+      assert.ok(fs.existsSync(fileJmeterProject));
+      if (fs.existsSync(fileJmeterProject)) {
+        fs.unlinkSync(fileJmeterProject);
+      }
     });
     it('Validate methods generated', function() {
       fs.readFile(fileJmeterProject, function(err, data) {
