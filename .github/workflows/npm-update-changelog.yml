@@ -16,12 +16,18 @@ jobs:
         run: |
           export GREN_GITHUB_TOKEN=${{ secrets.GIT_TOKEN }}
           ./node_modules/.bin/gren changelog --override
+      - name: Get base branch
+        id: vars
+        run: |
+          base_ref=${{ github.head_ref || github.ref }}
+          echo ::set-output name=base_branch::${base_ref#refs/*/}
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
           token: ${{ secrets.GIT_TOKEN }}
           commit-message: Update changelog
           delete-branch: true
@@ -33,7 +39,7 @@ jobs:
 
             [1]: https://github.com/sercheo87/create-pull-request
           branch: update-changelog
-          base: main
+          base: ${{ steps.vars.outputs.base_branch }}
           labels: |
             report
             automated pr
