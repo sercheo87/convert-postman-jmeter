@@ -3,10 +3,7 @@ name: Node.js Publish
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - 'release/**'
   page_build:
   release:
     types:
