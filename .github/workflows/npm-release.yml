@@ -27,6 +27,9 @@ jobs:
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.projectKey=convert-postman-jmeter
+      - name: Changelog
+        uses: scottbrenner/generate-changelog-action@master
+        id: Changelog
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -36,6 +39,10 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
-            Automatic generation release.
+            # Change Log
+
+            ## ${{ github.ref }} (May 27, 2019)
+
+            - Automatic generation release.
           draft: false
           prerelease: false
