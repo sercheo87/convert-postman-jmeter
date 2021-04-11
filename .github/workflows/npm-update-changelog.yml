@@ -42,7 +42,6 @@ jobs:
           base: master
           labels: automated pr
           assignees: sercheo87
-          milestone: 1
           draft: false
 
       - name: Check outputs
