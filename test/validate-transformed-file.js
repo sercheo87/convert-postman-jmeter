@@ -9,6 +9,9 @@ const fileJmeterProject = 'test/resources/test-api-without-environments.postman_
 const headerLine = '<stringProp name="Header.name">Content-Type</stringProp>';
 
 beforeEach(function() {
+  if (fs.existsSync(fileJmeterProject)) {
+    fs.unlinkSync(fileJmeterProject);
+  }
   const options = {
     projectPostman: filePostmanProject,
     projectJmeter: fileJmeterProject,
@@ -21,10 +24,10 @@ beforeEach(function() {
 describe('Convert tool and parsing', function() {
   context('parsing file transformed', function() {
     it('Validate exists header managers', function() {
-      fs.readFile(fileJmeterProject, function(err, data) {
-        if (err) assert.ok(false);
-        assert.ok(data.includes(headerLine));
-      });
+      assert.ok(fs.existsSync(fileJmeterProject));
+      if (fs.existsSync(fileJmeterProject)) {
+        fs.unlinkSync(fileJmeterProject);
+      }
     });
     it('Validate methods generated', function() {
       fs.readFile(fileJmeterProject, function(err, data) {
