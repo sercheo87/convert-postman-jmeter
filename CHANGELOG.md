@@ -1,5 +1,23 @@
 # Change Log
 
+## v1.0.15 (Apr 10, 2021)
+
+- Fix publish on NPM.
+
+## v1.0.14 (Apr 10, 2021)
+
+- Fix publish on NPM.
+
+## v1.0.14 (Apr 10, 2021)
+
+- Fix publish on NPM.## v1.0.13 (Apr 10, 2021)
+
+- Fix publish on NPM.
+
+## v1.0.12 (Apr 10, 2021)
+
+- Fix publish on NPM.
+
 ## v1.0.11 (Apr 10, 2021)
 
 - Fix publish on NPM.
