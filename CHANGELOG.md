@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.0.16 (Apr 10, 2021)
+
+- Adding support release generation CI-CD.
+
 ## v1.0.15 (Apr 10, 2021)
 
 - Fix publish on NPM.
