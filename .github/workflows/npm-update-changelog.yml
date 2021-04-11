@@ -1,4 +1,4 @@
-name: "update changelog"
+name: "Node.js Update changelog"
 on:
   release:
     types: [ published ]
@@ -12,8 +12,8 @@ jobs:
       - name: Update changelog
         run: |
           npm install github-release-notes
-          export GREN_GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-          npm run overrideChangelog
+          export GREN_GITHUB_TOKEN=${{ secrets.GIT_TOKEN }}
+          npm run changelog --generate
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
