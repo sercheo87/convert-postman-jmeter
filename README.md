@@ -1,13 +1,12 @@
 # convert-postman-jmeter
-
-[![CircleCI](https://circleci.com/gh/sercheo87/convert-postman-jmeter/tree/master.svg?style=svg)](https://circleci.com/gh/sercheo87/convert-postman-jmeter/tree/master)
+[![Node.js Publish](https://github.com/sercheo87/convert-postman-jmeter/actions/workflows/npm-publish.yml/badge.svg?event=page_build)](https://github.com/sercheo87/convert-postman-jmeter/actions/workflows/npm-publish.yml)
 ![GitHub issues](https://img.shields.io/github/issues/sercheo87/convert-postman-jmeter.svg)
 ![npm](https://img.shields.io/npm/v/3.svg)
 ![NPM](https://img.shields.io/npm/l/1.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/sercheo87/convert-postman-jmeter.svg)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/sercheo87/convert-postman-jmeter.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=convert-postman-jmeter&metric=alert_status)](https://sonarcloud.io/dashboard?id=convert-postman-jmeter)
-[![Node.js Package](https://github.com/sercheo87/convert-postman-jmeter/actions/workflows/npm-publish.yml/badge.svg?event=status)](https://github.com/sercheo87/convert-postman-jmeter/actions/workflows/npm-publish.yml)
+
 This tool convert projects [Postman](https://www.getpostman.com) to [JMeter](https://jmeter.apache.org)
 
 - [NPM Site](https://www.npmjs.com/package/convert-postman-jmeter)

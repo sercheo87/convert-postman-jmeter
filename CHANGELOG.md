@@ -1,5 +1,10 @@
 # Change Log
 
+## v1.0.9 (Apr 10, 2021)
+
+- Update README
+- Support each files on folder by convention name postman file collection *.postman_collection.json #12.
+
 ## v1.0.8 (Apr 10, 2021)
 
 - Use GitHub Action CI
