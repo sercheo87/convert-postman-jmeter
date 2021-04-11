@@ -43,6 +43,7 @@
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.13.0",
+    "github-release-notes": "^0.17.3",
     "mocha": "^6.1.4",
     "mocha-junit-reporter": "^1.22.0",
     "nyc": "^14.1.1",
