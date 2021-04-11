@@ -36,4 +36,3 @@ jobs:
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.projectKey=convert-postman-jmeter
-      - run: npm pack
