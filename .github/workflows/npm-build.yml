@@ -25,6 +25,8 @@ jobs:
       - run: npm install
       - run: npm run lint
       - run: npm run test
+      - name: Setup sonarqube
+        uses: warchant/setup-sonar-scanner@v3
       - name: Run sonarqube
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
