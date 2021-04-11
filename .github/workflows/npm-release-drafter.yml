@@ -1,4 +1,4 @@
-name: Release Drafter
+name: Node.js Release Drafter
 
 on:
   push:
