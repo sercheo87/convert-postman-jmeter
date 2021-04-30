@@ -71,7 +71,7 @@ convert-postman-jmeter -b /projects-postman/
 
 ![Postman App](screenshot/export.png)
 
-Open project generate with JMeter App:
+Open project generate with JMeter App :
 
 ![Postman App](screenshot/jmeter.png)
 
