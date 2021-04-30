@@ -1,5 +1,22 @@
 # Changelog
 
+## v2.1.0 🌈 (30/04/2021)
+## Changes
+- develop @sercheo87 (#63)
+- Update Changelog @sercheo87 (#60)
+
+## 🚀 Features
+
+- feature/feature-ci @sercheo87 (#57)
+
+## 🐛 Bug Fixes
+
+- Fix @sercheo87 (#69)
+- Fix @sercheo87 (#68)
+- Fix @sercheo87 (#66)
+
+---
+
 ## v2.0.14 🌈 (11/04/2021)
 ## Changes
 * No changes
