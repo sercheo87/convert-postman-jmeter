@@ -39,7 +39,7 @@ Copyright 2021
 
     -p,--postman        File name of project Postman exported.
 
-    -f,--jmeter         File name to output generated project JMeter.
+    -j,--jmeter         File name to output generated project JMeter.
 
     -o,--override       Override project JMeter generate if exists.
 
