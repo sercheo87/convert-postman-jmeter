@@ -1,6 +1,10 @@
 # Changelog
 
-## v2.1.0 🌈 (30/04/2021)
+## v2.0.18 (20/06/2021)
+
+---
+
+## v2.0.17 🌈 (30/04/2021)
 ## Changes
 - develop @sercheo87 (#63)
 - Update Changelog @sercheo87 (#60)
