@@ -84,7 +84,7 @@ describe('Constructor', function() {
       };
 
       expect(convertPostmanJmeter.convert(options)).to.equal(true);
-      expect(fs.existsSync(jmeterProjectFile1)).to.equal(false);
+      expect(fs.existsSync(jmeterProjectFile1)).to.equal(true);
     });
 
     it('with folder batch project generate jmeter projects', function() {
