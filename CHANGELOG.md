@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0.20 🌈 (13/07/2022)
+## Changes
+## 🚀 Features
+
+- Fix (#89)  @sercheo87
+
+---
+
 ## v2.0.19 🌈 (20/06/2021)
 ## Changes
 * No changes
