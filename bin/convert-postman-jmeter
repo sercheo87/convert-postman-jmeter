@@ -13,18 +13,22 @@ const argv = require('yargs')
     .alias('o', 'override')
     .describe('o', 'Override project JMeter')
     .default('o', false)
+    .alias('v', 'variables')
+    .describe('v','Transform collection variables to JMeter User Defined Variables')
+    .default('v',false)
     .alias('b', 'batch')
     .describe('b', 'Export all projects postman from folder path by name *.postman_collection.json')
     .default('b', '')
     .epilog('Copyright 2021').argv;
 
 const convertPostmanJmeter = require('../lib/convert-postman-jmeter');
-
+let foo = process.argv;
 const options = {
     projectPostman: argv.p,
     projectJmeter: argv.j,
     override: argv.o,
     batchFolder: argv.b,
+    colVariables: argv.v
 };
 
 convertPostmanJmeter.convert(options);

@@ -36,7 +36,7 @@
             </elementProp>
           </collectionProp>
         </elementProp>
-        <stringProp name="HTTPSampler.domain">{{domain}}</stringProp>
+        <stringProp name="HTTPSampler.domain">{{server}}</stringProp>
         <stringProp name="HTTPSampler.port">{{port}}</stringProp>
         <stringProp name="HTTPSampler.protocol">{{protocol}}</stringProp>
         <stringProp name="HTTPSampler.contentEncoding"></stringProp>
