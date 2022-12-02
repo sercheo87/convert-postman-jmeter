@@ -29,11 +29,18 @@
       <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="{{testName}}" enabled="true">
         <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments">
-            <elementProp name="" elementType="HTTPArgument">
-              <boolProp name="HTTPArgument.always_encode">false</boolProp>
-              <stringProp name="Argument.value">{{bodyData}}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
+            
+            {{#requestParams}}
+             
+            <elementProp name="{{key}}" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{{value}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.name">{{key}}</stringProp>
+              </elementProp>
+            {{/requestParams}}
+
+            
           </collectionProp>
         </elementProp>
         <stringProp name="HTTPSampler.domain">{{server}}</stringProp>
