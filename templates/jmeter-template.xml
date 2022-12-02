@@ -74,11 +74,13 @@
       {{#userDefinedVariables}}
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments">
+          {{#variableCollection}}
             <elementProp name="{{variableName}}" elementType="Argument">
               <stringProp name="Argument.name">{{variableName}}</stringProp>
               <stringProp name="Argument.value">{{variableValue}}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
+            {{/variableCollection}}
           </collectionProp>
         </Arguments>
         <hashTree/>
