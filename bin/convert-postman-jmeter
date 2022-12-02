@@ -2,6 +2,11 @@
 
 'use strict';
 
+const path = require('path');
+const fs = require('fs');
+
+
+const { fstat } = require('fs');
 const os = require('os');
 const argv = require('yargs')
     .scriptName('convert-postman-jmeter')
@@ -26,6 +31,9 @@ const argv = require('yargs')
 
 const convertPostmanJmeter = require('../lib/convert-postman-jmeter');
 
+const validPathRegex = /^\/([A-z0-9-_+ ]+\/)*([A-z0-9-_ ]+\.?[A-z0-9-_+]*)$/gm;
+
+
 const options = {
     projectPostman: argv.p,
     projectJmeter: argv.j,
@@ -34,4 +42,27 @@ const options = {
     varMode: argv.v
 };
 
+//validate paths are formatted correctly
+if(validPathRegex.test(options.projectPostman) === false)
+{
+    console.error("Invalid path for postman collection: " + options.projectPostman);
+    return -1;
+}
+
+if(!options.projectJmeter.match(validPathRegex))
+{
+    console.error("Invalid path for postman collection: " + options.projectJmeter);
+    return -1;
+}
+//validate options, can probably be done with yargs
+
+if(!fs.existsSync(options.projectPostman))
+{
+    console.error("Postman collection file " + options.projectPostman + " not found.");
+    return -1;
+}
+
+
+
+console.log("OPTIONS: " + JSON.stringify(options));
 convertPostmanJmeter.convert(options);
