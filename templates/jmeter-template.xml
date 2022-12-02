@@ -33,7 +33,7 @@
             {{#requestParams}}
              
             <elementProp name="{{key}}" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">{{value}}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <stringProp name="Argument.name">{{key}}</stringProp>
