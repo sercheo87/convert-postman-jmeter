@@ -1,5 +1,5 @@
-# postman-jmeter
-<!--
+# convert-postman-jmeter
+
 [![Node.js Publish](https://github.com/sercheo87/convert-postman-jmeter/actions/workflows/npm-publish.yml/badge.svg?event=page_build)](https://github.com/sercheo87/convert-postman-jmeter/actions/workflows/npm-publish.yml)
 ![GitHub issues](https://img.shields.io/github/issues/sercheo87/convert-postman-jmeter.svg)
 ![npm](https://img.shields.io/npm/v/3.svg)
@@ -7,11 +7,11 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/sercheo87/convert-postman-jmeter.svg)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/sercheo87/convert-postman-jmeter.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=convert-postman-jmeter&metric=alert_status)](https://sonarcloud.io/dashboard?id=convert-postman-jmeter)
--->
+
 This tool convert projects [Postman](https://www.getpostman.com) to [JMeter](https://jmeter.apache.org)
 
-- [NPM Site](https://www.npmjs.com/package/postman-jmeter)
-- [Wiki](https://sercheo87.github.io/postman-jmeter/)
+- [NPM Site](https://www.npmjs.com/package/convert-postman-jmeter)
+- [Wiki](https://sercheo87.github.io/convert-postman-jmeter/)
 
 ## Installation
 
@@ -55,7 +55,7 @@ How to handle variables defined at the collection and environment level.
 
 ## Automation with GitHub Actions
 
-This utility is designed to enable load-testing via JMeter as part of a CI/CD pipeline.  An example can be found [in this repo](https://github.com/BidnessForB/postman-jmeter/blob/main/.github/workflows/JMeter-load-testing.yaml).  
+This utility is designed to enable load-testing via JMeter as part of a CI/CD pipeline.  An example can be found [in this repo](https://github.com/BidnessForB/convert-postman-jmeter/blob/main/.github/workflows/JMeter-load-testing.yaml).  
 
 NOTE: Protocol is always resolved, even if inferred from variable values.  
 
@@ -65,4 +65,4 @@ Body data are not currently processed.
 
 ## Known Issues
 
-For issues create o find in [issues page](https://github.com/bidnessforb/postman-jmeter/issues).
+For issues create o find in [issues page](https://github.com/bidnessforb/convert-postman-jmeter/issues).
