@@ -16,13 +16,13 @@ This tool convert projects [Postman](https://www.getpostman.com) to [JMeter](htt
 ## Installation
 
 ```bash
-npm i postman-jmeter -g
+npm i convert-postman-jmeter -g
 ```
 
 ## Usage
 
 ```bash
-$ postman-jmeter
+$ convert-postman-jmeter
 Usage: convert-postman-jmeter -p [file] -j [file] [-o] [-b] [-v=resolve|transform] 
 ```
 ||||||
