@@ -1,5 +1,13 @@
 # Changelog
 
+## Release v2.1.0 (08/12/2022)
+# Change Log
+
+## refs/tags/v2.1.0 (May 27, 2019)
+
+- Automatic generation release.
+---
+
 ## v2.0.20 🌈 (13/07/2022)
 ## Changes
 ## 🚀 Features
