@@ -19,7 +19,7 @@ describe('Constructor ArgumentObject', function() {
     it('Validate transform', function() {
       const a = new ArgumentObject();
       a.addArgumentsCollection('key', 'value');
-      expect(a.transformToJmeterRequest()).to.be.to.equal(1);
+      expect(a.transformToJmeterRequest().httpTestCollectionsArgument.length).to.be.to.equal(1);
     });
   });
 });
