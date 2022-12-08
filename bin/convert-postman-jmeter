@@ -16,7 +16,10 @@ const argv = require('yargs')
     .alias('b', 'batch')
     .describe('b', 'Export all projects postman from folder path by name *.postman_collection.json')
     .default('b', '')
-    .epilog('Copyright 2021').argv;
+    .alias('e', 'environmentFile')
+    .describe('e', 'Load environment file')
+    .default('e', '')
+    .epilog('Copyright 2022').argv;
 
 const convertPostmanJmeter = require('../lib/convert-postman-jmeter');
 
@@ -25,6 +28,7 @@ const options = {
     projectJmeter: argv.j,
     override: argv.o,
     batchFolder: argv.b,
+    projectEnvironmentPostman: argv.e,
 };
 
 convertPostmanJmeter.convert(options);

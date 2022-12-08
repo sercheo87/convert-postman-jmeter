@@ -1,4 +1,5 @@
 # convert-postman-jmeter
+
 [![Node.js Publish](https://github.com/sercheo87/convert-postman-jmeter/actions/workflows/npm-publish.yml/badge.svg?event=page_build)](https://github.com/sercheo87/convert-postman-jmeter/actions/workflows/npm-publish.yml)
 ![GitHub issues](https://img.shields.io/github/issues/sercheo87/convert-postman-jmeter.svg)
 ![npm](https://img.shields.io/npm/v/3.svg)
@@ -18,6 +19,11 @@ This tool convert projects [Postman](https://www.getpostman.com) to [JMeter](htt
 npm i convert-postman-jmeter -g
 ```
 
+## Characteristics
+
+- Convert Postman Collection to JMeter Test Plan
+- Convert Postman Collection with Environment to JMeter Test Plan
+
 ## Usage
 
 ```bash
@@ -25,14 +31,15 @@ $ convert-postman-jmeter
 Usage: convert-postman-jmeter -p [file] -j [file]
 
 Options:
-  --help          Show help                                            [boolean]
-  --version       Show version number                                  [boolean]
-  -p, --postman   Load project postman                                [required]
-  -j, --jmeter    Output project JMeter
-  -o, --override  Override project JMeter                       [default: false]
-  -b, --batch     Export all projects postman from folder path     [default: ""]
+  --help                Show help                                       [boolean]
+  --version             Show version number                             [boolean]
+  -p, --postman         Load project postman                            [required]
+  -j, --jmeter          Output project JMeter
+  -o, --override        Override project JMeter                         [default: false]
+  -b, --batch           Export all projects postman from folder path    [default: ""]
+  -e, --environmentFile Load environment file postman                   [default: ""]
 
-Copyright 2021
+Copyright 2022
 ```
 
 ### Options
@@ -44,6 +51,8 @@ Copyright 2021
     -o,--override       Override project JMeter generate if exists.
 
     -b,--batch          Export all projects postman from folder path.
+
+    -e,--environmentFile Load environment file postman.
 
 ## Example Use
 
