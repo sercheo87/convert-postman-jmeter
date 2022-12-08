@@ -2,77 +2,33 @@
 
 'use strict';
 
-const path = require('path');
-const fs = require('fs');
-
-
-const { fstat } = require('fs');
 const os = require('os');
-const yargs = require('yargs');
 const argv = require('yargs')
     .scriptName('convert-postman-jmeter')
     .usage('Usage: $0 -p [file] -j [file]')
     .alias('p', 'postman')
-    .required('p', "You must specify a Postman collection")
     .describe('p', 'Load project postman')
     .alias('j', 'jmeter')
     .describe('j', 'Output project JMeter')
-    .required('j', 'You must specify an output JMX file')
-    .alias('e', 'environment')
-    .describe('e', "Environment file (optional)")
-    .alias('o', 'overwrite')
-    .describe('o', 'Overwrite the JMX file, if it exists. Defaults to false')
-    .boolean('o')
+    .alias('o', 'override')
+    .describe('o', 'Override project JMeter')
     .default('o', false)
-    .alias('v', 'variables')
-    .default('v','resolve')
-    .describe('v','Transform collection variables to JMeter User Defined Variables, or resolve values')
-    .choices('v',['resolve','transform'])
-    .string('v')
     .alias('b', 'batch')
     .describe('b', 'Export all projects postman from folder path by name *.postman_collection.json')
     .default('b', '')
-    .wrap(yargs.terminalWidth())
-    .check((argv) => {
-        let errors = "";
-        if (fs.existsSync(argv.p) === false) {
-            errors = errors + (errors.length == 0 ? '\nERROR(s)' : "") + '\n\t - Postman file not found (' + argv.p; 
-        }   
-        if (fs.existsSync(path.dirname(argv.j)) === false) {
-            errors = errors + (errors.length == 0 ? '\n ERROR(s)' : "") + '\n\t - Output JMX path not found (' + argv.j;    
-        }
-        if (fs.existsSync(argv.j) && argv.o === false)
-        {
-            errors = errors + (errors.length == 0 ? '\n ERROR(s)' : "") + '\n\t - Target JMX file exists, set overwrite to FALSE (' + argv.j;    
-        }
-        if (!(typeof argv.e === 'undefined'))
-          if(fs.existsSync(path.dirname(argv.e) === false)) {      
-            errors = errors + (errors.length == 0 ? '\n ERROR(s)' : "") + '\n\t - Environment file path not found (' + argv.e;    
-        }
-        
-        if(errors.length > 0)
-        {
-            throw new Error(errors);
-        }
-        else{
-            return true;
-        }
-      })
-    .epilog('Copyright 2021').argv
-    
+    .alias('e', 'environmentFile')
+    .describe('e', 'Load environment file')
+    .default('e', '')
+    .epilog('Copyright 2022').argv;
+
 const convertPostmanJmeter = require('../lib/convert-postman-jmeter');
-
-
-
 
 const options = {
     projectPostman: argv.p,
     projectJmeter: argv.j,
     override: argv.o,
     batchFolder: argv.b,
-    varMode: argv.v,
-    envFile: argv.e
+    projectEnvironmentPostman: argv.e,
 };
-
 
 convertPostmanJmeter.convert(options);

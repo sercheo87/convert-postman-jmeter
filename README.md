@@ -19,50 +19,71 @@ This tool convert projects [Postman](https://www.getpostman.com) to [JMeter](htt
 npm i convert-postman-jmeter -g
 ```
 
+## Characteristics
+
+- Convert Postman Collection to JMeter Test Plan
+- Convert Postman Collection with Environment to JMeter Test Plan
+
 ## Usage
 
 ```bash
 $ convert-postman-jmeter
-Usage: convert-postman-jmeter -p [file] -j [file] [-o] [-b] [-v=resolve|transform] 
+Usage: convert-postman-jmeter -p [file] -j [file]
+
+Options:
+  --help                Show help                                       [boolean]
+  --version             Show version number                             [boolean]
+  -p, --postman         Load project postman                            [required]
+  -j, --jmeter          Output project JMeter
+  -o, --override        Override project JMeter                         [default: false]
+  -b, --batch           Export all projects postman from folder path    [default: ""]
+  -e, --environmentFile Load environment file postman                   [default: ""]
+
+Copyright 2022
 ```
-||||||
-| -- | -- | -- | -- | -- |
-| `-help` | Show help | `boolean` | | |
-| `--version` | Show version | `boolean` | | |
-| `-p, --postman` | Path of postman collection file to process | `file` | `required`|
-| `-j, --jmeter` | Path of JMeter test plan (.jmx) | `file` | `required`|
-| `-e, --environment` | Path of postman environment file | `string` | `optional`|
-| `-o, --overwrite` | Overwrite existing .jmx file | `boolean` | `optional`|
-| `-v, --variables` | Variable resolution strategy | `string` | `required`| `transform`, `resolve` |
-| `-b, --batch` | Process all collection files (`*.postman_collection.json`) in directory | `boolean` | `optional`|  |
 
-## Variable Resolution Strategy
+### Options
 
-Postman collection and environment variables are added to the JMeter Test Plan as User Defined Variables.  What appears in the `value` column in the User Defined Variables pane and other parts of the JMeter UI depends on the variable resolution strategy.  
+    -p,--postman        File name of project Postman exported.
 
-How to handle variables defined at the collection and environment level.  
- - `resolve`: Resolve postman variables into their actual values in the JMX test plan.  Replace references to variables with their actual variables elsewhere, eg in the protocol, Server Name or IP, and/or Path fields:
+    -j,--jmeter         File name to output generated project JMeter.
 
-![image](https://user-images.githubusercontent.com/6423235/205748399-f1ed4e67-dbab-40eb-a70f-7128be84fe10.png)
+    -o,--override       Override project JMeter generate if exists.
 
-![image](https://user-images.githubusercontent.com/6423235/205748554-aef7defe-4aec-4f06-9bc8-806c8e4d1cf0.png)
+    -b,--batch          Export all projects postman from folder path.
 
- - `transform`: Resolve values in the User Defined Variables pane, but use JMeter replacement syntax elsewhere.
+    -e,--environmentFile Load environment file postman.
 
-![image](https://user-images.githubusercontent.com/6423235/205748894-82d1ac6c-df5e-4e3b-894b-675bfe9159cc.png)
+## Example Use
 
-`resolve` is the default strategy.
+Open Postman:
 
-## Automation with GitHub Actions
+![Postman App](screenshot/postman.png)
 
-This utility is designed to enable load-testing via JMeter as part of a CI/CD pipeline.  An example can be found [in this repo](https://github.com/BidnessForB/convert-postman-jmeter/blob/main/.github/workflows/JMeter-load-testing.yaml).  
+Export project:
 
-NOTE: Protocol is always resolved, even if inferred from variable values.  
+![Postman App](screenshot/postman-export.png)
 
-## Limitations
+Save file:
 
-Body data are not currently processed.  
+![Postman App](screenshot/postman-location.png)
+
+Convert project exported:
+
+```bash
+convert-postman-jmeter -p test-api-without-environments.postman_collection.json
+```
+
+```bash
+convert-postman-jmeter -b /projects-postman/
+```
+
+![Postman App](screenshot/export.png)
+
+Open project generate with JMeter App :
+
+![Postman App](screenshot/jmeter.png)
 
 ## Known Issues
 
-For issues create o find in [issues page](https://github.com/bidnessforb/convert-postman-jmeter/issues).
+For issues create o find in [issues page](https://github.com/sercheo87/convert-postman-jmeter/issues).
