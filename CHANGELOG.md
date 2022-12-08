@@ -1,11 +1,13 @@
 # Changelog
 
-## Release v2.1.0 (08/12/2022)
-# Change Log
+## v2.1.0 (08/12/2022)
+## v2.1.0 🌈 (08/12/2022)
 
-## refs/tags/v2.1.0 (May 27, 2019)
+## 🚀 Features
 
-- Automatic generation release.
+- Add support for environment file Postman project.
+- Fix project code merging @sercheo87 (#94)
+
 ---
 
 ## v2.0.20 🌈 (13/07/2022)
