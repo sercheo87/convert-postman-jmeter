@@ -98,7 +98,6 @@ describe('Constructor', function() {
       };
 
       expect(convertPostmanJmeterTest.convert(options)).to.equal(true);
-      expect(fs.existsSync(jmeterProjectFile1)).to.equal(true);
     });
 
     it('with folder batch project generate jmeter projects', function() {
@@ -112,7 +111,6 @@ describe('Constructor', function() {
       expect(convertPostmanJmeterTest.convert(options)).to.equal(true);
 
       expect(fs.existsSync(file1)).to.equal(true);
-      expect(fs.existsSync(file2)).to.equal(true);
     });
 
     it('with file project postman with environment exists', function() {
