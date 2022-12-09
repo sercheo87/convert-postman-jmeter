@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.1.0 🌈 (08/12/2022)
+
+## 🚀 Features
+
+- Add support for environment file Postman project.
+- Fix project code merging @sercheo87 (#94)
+
+---
+
 ## v2.0.20 🌈 (13/07/2022)
 ## Changes
 ## 🚀 Features
