@@ -2,7 +2,7 @@ name: "Node.js Update changelog"
 on:
   push:
     branches:
-      - 'release/**'
+      - release
 
 jobs:
   update-changelog:
