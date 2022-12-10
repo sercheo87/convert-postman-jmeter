@@ -1,6 +1,20 @@
 # Changelog
 
-## v2.2.3 🌈 (01/01/1970)
+## v2.3.0 🌈 (01/01/1970)
+## Changes
+## 🚀 Features
+
+- Import Project Postman API @sercheo87 (#126)
+- Documentation @sercheo87 (#124)
+
+## 🧺 Miscellaneous
+
+- Github Actions @sercheo87 (#125)
+- Documentation @sercheo87 (#124)
+
+---
+
+## v2.2.3 🌈 (10/12/2022)
 ## Changes
 ## 🧺 Miscellaneous
 
