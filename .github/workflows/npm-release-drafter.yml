@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - 'feature/**'
+      - 'bugfix/**'
+      - 'hotfix/**'
+      - 'develop'
 
 jobs:
   update_release_draft:
