@@ -8,6 +8,7 @@ describe('Constructor', function() {
     const jmeterProjectFile2 = 'test/resources/test-api-without-environments.postman_collection.jmx';
     const jmeterProjectFile3 = 'test/resources/test-api-without-environments-v9.21.5.postman_collection.jmx';
     const jmeterProjectFile4 = 'test/resources/test-api-with-environments.postman_collection.jmx';
+    const jmeterProjectFile5 = 'test/resources/test-api-project.postman_collection.jmx';
     const file1 = 'test/resources/batch-projects/test-api-without-environments-1.postman_collection.jmx';
     const file2 = 'test/resources/batch-projects/test-api-without-environments-2.postman_collection.jmx';
     const file3 = 'test/resources/batch-projects/test-api-with-environments.postman_collection.jmx';
@@ -24,6 +25,9 @@ describe('Constructor', function() {
       }
       if (fs.existsSync(jmeterProjectFile4)) {
         fs.unlinkSync(jmeterProjectFile4);
+      }
+      if (fs.existsSync(jmeterProjectFile5)) {
+        fs.unlinkSync(jmeterProjectFile5);
       }
       if (fs.existsSync(file1)) {
         fs.unlinkSync(file1);
@@ -49,6 +53,9 @@ describe('Constructor', function() {
       if (fs.existsSync(jmeterProjectFile4)) {
         fs.unlinkSync(jmeterProjectFile4);
       }
+      if (fs.existsSync(jmeterProjectFile5)) {
+        fs.unlinkSync(jmeterProjectFile5);
+      }
       if (fs.existsSync(file1)) {
         fs.unlinkSync(file1);
       }
@@ -61,15 +68,21 @@ describe('Constructor', function() {
     });
 
     it('without options', function() {
-      expect(convertPostmanJmeterTest.convert()).to.equal(false);
+      convertPostmanJmeterTest.convert().then(function(result) {
+        expect(result).to.equal(false);
+      });
     });
 
     it('with file empty value on options', function() {
-      expect(convertPostmanJmeterTest.convert({projectPostman: ''})).to.equal(false);
+      convertPostmanJmeterTest.convert({projectPostman: ''}).then(function(result) {
+        expect(result).to.equal(false);
+      });
     });
 
     it('without file project postman not exists on options', function() {
-      expect(convertPostmanJmeterTest.convert({projectPostman: 'not-exists.json'})).to.equal(false);
+      convertPostmanJmeterTest.convert({projectPostman: 'not-exists.json'}).then(function(result) {
+        expect(result).to.equal(false);
+      });
     });
 
     it('with file project postman exists on options', function() {
@@ -78,7 +91,10 @@ describe('Constructor', function() {
         projectJmeter: jmeterProjectFile2,
         override: true,
       };
-      expect(convertPostmanJmeterTest.convert(options)).to.equal(true);
+
+      convertPostmanJmeterTest.convert(options).then(function(result) {
+        expect(result).to.equal(true);
+      });
     });
 
     it('with file project postman exists on options new version Postman v9.21.5', function() {
@@ -87,7 +103,10 @@ describe('Constructor', function() {
         projectJmeter: jmeterProjectFile3,
         override: true,
       };
-      expect(convertPostmanJmeterTest.convert(options)).to.equal(true);
+
+      convertPostmanJmeterTest.convert(options).then(function(result) {
+        expect(result).to.equal(true);
+      });
     });
 
     it('with file project postman without request', function() {
@@ -97,18 +116,20 @@ describe('Constructor', function() {
         override: true,
       };
 
-      expect(convertPostmanJmeterTest.convert(options)).to.equal(true);
+      convertPostmanJmeterTest.convert(options).then(function(result) {
+        expect(result).to.equal(true);
+      });
     });
 
     it('with folder batch project generate jmeter projects', function() {
       const file1 = 'test/resources/batch-projects/test-api-without-environments-1.postman_collection.jmx';
-      const file2 = 'test/resources/batch-projects/test-api-without-environments-2.postman_collection.jmx';
-
       const options = {
         batchFolder: 'test/resources/batch-projects',
       };
 
-      expect(convertPostmanJmeterTest.convert(options)).to.equal(true);
+      convertPostmanJmeterTest.convert(options).then(function(result) {
+        expect(result).to.equal(true);
+      });
 
       expect(fs.existsSync(file1)).to.equal(true);
     });
@@ -120,7 +141,23 @@ describe('Constructor', function() {
         override: true,
         projectEnvironmentPostman: 'test/resources/test-api-environment.postman_environment.json',
       };
-      expect(convertPostmanJmeterTest.convert(options)).to.equal(true);
+
+      convertPostmanJmeterTest.convert(options).then(function(result) {
+        expect(result).to.equal(true);
+      });
+    });
+
+    it('with file ID project postman and bad user key', function() {
+      const options = {
+        idProjectPostman: '27135-179cd6c3-a251-4d63-b786-d4aaf6dc92dc',
+        keyUserPostman: 'PMAK-111',
+        projectJmeter: jmeterProjectFile5,
+        override: true,
+      };
+
+      convertPostmanJmeterTest.convert(options).then(function(result) {
+        expect(result).to.equal(false);
+      });
     });
   });
 });
