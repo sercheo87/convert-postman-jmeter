@@ -8,6 +8,10 @@ const argv = require('yargs')
     .usage('Usage: $0 -p [file] -j [file]')
     .alias('p', 'postman')
     .describe('p', 'Load project postman')
+    .alias('i', 'idProjectPostman')
+    .describe('i', 'Id project postman for import project')
+    .alias('k', 'keyUserPostman')
+    .describe('k', 'Key user postman for import project for more info https://learning.postman.com/docs/developer/intro-api/')
     .alias('j', 'jmeter')
     .describe('j', 'Output project JMeter')
     .alias('o', 'override')
@@ -29,6 +33,8 @@ const options = {
     override: argv.o,
     batchFolder: argv.b,
     projectEnvironmentPostman: argv.e,
+    idProjectPostman: argv.i,
+    keyUserPostman: argv.k,
 };
 
 convertPostmanJmeter.convert(options);

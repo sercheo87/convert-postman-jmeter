@@ -9,6 +9,18 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=convert-postman-jmeter&metric=alert_status)](https://sonarcloud.io/dashboard?id=convert-postman-jmeter)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
+- [convert-postman-jmeter](#convert-postman-jmeter)
+    - [Introduction](#introduction)
+    - [Installation](#installation)
+    - [Characteristics](#characteristics)
+    - [Usage](#usage)
+        - [Options](#options)
+    - [Use case](#use-case)
+        - [Additional uses from command line](#additional-uses-from-command-line)
+    - [Known Issues](#known-issues)
+
+## Introduction
+
 This tool convert projects [Postman](https://www.getpostman.com) to [JMeter](https://jmeter.apache.org)
 
 - [NPM Site](https://www.npmjs.com/package/convert-postman-jmeter)
@@ -32,30 +44,35 @@ $ convert-postman-jmeter
 Usage: convert-postman-jmeter -p [file] -j [file]
 
 Options:
-  --help                Show help                                       [boolean]
-  --version             Show version number                             [boolean]
-  -p, --postman         Load project postman                            [required]
-  -j, --jmeter          Output project JMeter
-  -o, --override        Override project JMeter                         [default: false]
-  -b, --batch           Export all projects postman from folder path    [default: ""]
-  -e, --environmentFile Load environment file postman                   [default: ""]
+      --help              Show help                                    [boolean]
+      --version           Show version number                          [boolean]
+  -p, --postman           Load project postman
+  -i, --idProjectPostman  Id project postman for import project
+  -k, --keyUserPostman    Key user postman for import project for more info
+                          https://learning.postman.com/docs/developer/intro-api/
+  -j, --jmeter            Output project JMeter
+  -o, --override          Override project JMeter               [default: false]
+  -b, --batch             Export all projects postman from folder path by name
+                          *.postman_collection.json                [default: ""]
+  -e, --environmentFile   Load environment file                    [default: ""]
 
 Copyright 2022
+
 ```
 
 ### Options
 
-    -p,--postman        File name of project Postman exported.
+| Option Sort | Option Complete    | Description                                  | Required | Default |
+|-------------|--------------------|----------------------------------------------|----------|---------|
+| -p          | --postman          | Load project postman                         | true     |         |
+| -i          | --idProjectPostman | Id project postman for import project        | false    |         |
+| -k          | --keyUserPostman   | Key user postman for import project          | false    |         |
+| -j          | --jmeter           | Output project JMeter                        | false    |         |
+| -o          | --override         | Override project JMeter                      | false    | false   |
+| -b          | --batch            | Export all projects postman from folder path | false    | ""      |
+| -e          | --environmentFile  | Load environment file postman                | false    | ""      |
 
-    -j,--jmeter         File name to output generated project JMeter.
-
-    -o,--override       Override project JMeter generate if exists.
-
-    -b,--batch          Export all projects postman from folder path.
-
-    -e,--environmentFile Load environment file postman.
-
-## Example Use
+## Use case
 
 Open Postman:
 
@@ -85,6 +102,28 @@ Open project generate with JMeter App :
 
 ![Postman App](screenshot/jmeter.png)
 
+### Additional uses from command line
+
+Generate project JMeter from project Postman
+
+```bash
+convert-postman-jmeter -p ./postman_collection.json -j ./jmeter_test_plan.jmx
+```
+
+Generate project JMeter from project Postman with environment
+
+```bash
+convert-postman-jmeter -p ./postman_collection.json -j ./jmeter_test_plan.jmx -e ./postman_environment.json
+```
+
+Generate project JMeter from project Postman with **ID Project** and **Key User**
+
+```bash
+convert-postman-jmeter -i '27135-179cd6c3-a251-4d63-b786-d4aaf6dc92dc' -k 'PMAK-123456789' -j ./jmeter_test_plan.jmx
+```
+
+    Note: In this case is required the **Key User** for more information [Postman API](https://learning.postman.com/docs/developer/intro-api/)
+
 ## Known Issues
 
-For issues create o find in [issues page](https://github.com/sercheo87/convert-postman-jmeter/issues).
+For issues create to find in [issues page](https://github.com/sercheo87/convert-postman-jmeter/issues).
