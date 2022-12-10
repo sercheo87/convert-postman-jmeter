@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.2.3 🌈 (01/01/1970)
+## Changes
+## 🧺 Miscellaneous
+
+- Github Actions @sercheo87 (#120)
+- Github Actions @sercheo87 (#119)
+
+---
+
 ## Release v2.2.2 (10/12/2022)
 # Change Log
 
