@@ -1,5 +1,31 @@
 # Changelog
 
+## v2.2.3 🌈 (01/01/1970)
+## Changes
+## 🧺 Miscellaneous
+
+- Github Actions @sercheo87 (#120)
+- Github Actions @sercheo87 (#119)
+
+---
+
+## Release v2.2.2 (10/12/2022)
+# Change Log
+
+## refs/tags/v2.2.2 (May 27, 2019)
+
+- Automatic generation release.
+---
+
+## Release v2.1.1 (09/12/2022)
+# Change Log
+
+## refs/tags/v2.1.1 (May 27, 2019)
+
+- Automatic generation release.
+---
+
+## v2.1.0 (08/12/2022)
 ## v2.1.0 🌈 (08/12/2022)
 
 ## 🚀 Features
