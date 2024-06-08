@@ -1,14 +1,14 @@
 name: Stress testing with JMeter
 
-on:  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
   load-test-with-jmeter:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install postman to jmeter converter
-        run: | 
+        run: |
           npm install -s postman-jmeter
       - name: install jmeter
         run: |
@@ -19,7 +19,7 @@ jobs:
           ./jmeter -v
           pwd
       - name: Convert postman collection
-        run: | 
+        run: |
           echo "DIRECTORY: " 
           ls 
           ./node_modules/postman-jmeter/bin/convert-postman-jmeter -p ./test/catfact-coll.json -j catfacts.jmx -o -v=resolve
