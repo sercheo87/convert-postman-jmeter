@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.3.1 🌈 (01/01/1970)
+## Changes
+- CI/CD @sercheo87 (#156)
+- Update @sercheo87 (#153)
+- Sonar @sercheo87 (#151)
+- Update @sercheo87 (#149)
+- PNPM @sercheo87 (#147)
+- Versioning @sercheo87 (#146)
+
+---
+
 ## v2.3.0 🌈 (10/12/2022)
 ## Changes
 ## 🚀 Features
