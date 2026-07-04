@@ -1,0 +1,8 @@
+overrides:
+  cross-spawn: ">=7.0.5"
+  flatted: ">=3.4.2"
+  "@babel/helpers": ">=7.26.10"
+  minimatch: ">=9.0.6"
+  serialize-javascript: ">=7.0.3"
+  diff: ">=8.0.3"
+  js-yaml: ">=4.1.2"

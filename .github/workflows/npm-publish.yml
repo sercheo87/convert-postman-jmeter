@@ -14,28 +14,36 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@v4
-            -   uses: actions/setup-node@v2
+            -   uses: pnpm/action-setup@v4
                 with:
-                    node-version: 20
-            -   run: npm install
-            -   run: npm run lint
-            -   run: npm run test
+                    version: latest
+            -   uses: actions/setup-node@v4
+                with:
+                    node-version: 22
+                    cache: 'pnpm'
+            -   run: pnpm install --frozen-lockfile
+            -   run: pnpm run lint
+            -   run: pnpm run test
             -   name: SonarCloud Scan
                 uses: SonarSource/sonarcloud-github-action@master
                 env:
-                    GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}  # Needed to get PR information, if any
+                    GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
                     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     publish-npm:
         needs: build
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v2
-            -   uses: actions/setup-node@v2
+            -   uses: actions/checkout@v4
+            -   uses: pnpm/action-setup@v4
                 with:
-                    node-version: 20
+                    version: latest
+            -   uses: actions/setup-node@v4
+                with:
+                    node-version: 22
                     registry-url: https://registry.npmjs.org/
-            -   run: npm install
+                    cache: 'pnpm'
+            -   run: pnpm install --frozen-lockfile
             -   run: npm publish --access public
                 env:
                     NODE_AUTH_TOKEN: ${{secrets.npm_token}}

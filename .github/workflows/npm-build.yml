@@ -19,12 +19,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@v4
-            -   uses: actions/setup-node@v2
+            -   uses: pnpm/action-setup@v4
                 with:
-                    node-version: 20
-            -   run: npm install
-            -   run: npm run lint
-            -   run: npm run test
+                    version: latest
+            -   uses: actions/setup-node@v4
+                with:
+                    node-version: 22
+                    cache: 'pnpm'
+            -   run: pnpm install --frozen-lockfile
+            -   run: pnpm run lint
+            -   run: pnpm run test
             -   name: SonarCloud Scan
                 uses: SonarSource/sonarcloud-github-action@master
                 env:
