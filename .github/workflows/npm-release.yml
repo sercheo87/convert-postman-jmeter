@@ -9,11 +9,11 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v4
-            -   uses: pnpm/action-setup@v4
+            -   uses: actions/checkout@v7
+            -   uses: pnpm/action-setup@v6
                 with:
                     version: latest
-            -   uses: actions/setup-node@v4
+            -   uses: actions/setup-node@v6
                 with:
                     node-version: 22
                     cache: 'pnpm'
@@ -21,26 +21,17 @@ jobs:
             -   run: pnpm run lint
             -   run: pnpm run test
             -   name: SonarCloud Scan
-                uses: SonarSource/sonarcloud-github-action@master
+                uses: SonarSource/sonarqube-scan-action@v8
                 env:
-                    GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}  # Needed to get PR information, if any
                     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-            -   name: Changelog
-                uses: scottbrenner/generate-changelog-action@master
-                id: Changelog
+                    SONAR_HOST_URL: https://sonarcloud.io
             -   name: Create Release
-                id: create_release
-                uses: actions/create-release@v1
-                env:
-                    GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+                uses: softprops/action-gh-release@v3
                 with:
-                    tag_name: ${{ github.ref }}
-                    release_name: Release ${{ github.ref }}
-                    body: |
-                        # Change Log
-                        
-                        ## ${{ github.ref }} (May 27, 2019)
-                        
-                        - Automatic generation release.
+                    tag_name: ${{ github.ref_name }}
+                    name: Release ${{ github.ref_name }}
+                    generate_release_notes: true
                     draft: false
                     prerelease: false
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}

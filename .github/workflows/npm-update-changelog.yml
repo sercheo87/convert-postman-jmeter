@@ -9,8 +9,8 @@ jobs:
     update-changelog:
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v7
             -   name: Update Release Draft
-                uses: release-drafter/release-drafter@v6
+                uses: release-drafter/release-drafter@v7
                 env:
                     GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
