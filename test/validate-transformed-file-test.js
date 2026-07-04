@@ -7,7 +7,7 @@ const filePostmanProject = 'test/resources/test-api-without-environments.postman
 // eslint-disable-next-line max-len
 const fileJmeterProject = 'test/resources/test-api-without-environments.postman_collection.jmx';
 
-beforeEach(function() {
+beforeEach(async function() {
   if (fs.existsSync(fileJmeterProject)) {
     fs.unlinkSync(fileJmeterProject);
   }
@@ -17,7 +17,7 @@ beforeEach(function() {
     override: true,
   };
 
-  convertPostmanJmeter.convert(options);
+  await convertPostmanJmeter.convert(options);
 });
 afterEach(function() {
   if (fs.existsSync(fileJmeterProject)) {
