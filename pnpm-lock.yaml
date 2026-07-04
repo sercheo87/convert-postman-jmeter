@@ -39,6 +39,9 @@ importers:
       eslint:
         specifier: ^9.0.0
         version: 9.39.4(supports-color@8.1.1)
+      eslint-formatter-junit:
+        specifier: ^9.0.0
+        version: 9.0.1
       globals:
         specifier: ^16.0.0
         version: 16.5.0
@@ -300,6 +303,10 @@ packages:
   escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
+
+  eslint-formatter-junit@9.0.1:
+    resolution: {integrity: sha512-0MrNGXg2C46M/ImjWuClHSGKHBR0eSBPfYHqPgYmB0utq7Jog3YyLBmbshNvo/Ba/Al3zClPWdd6/jnxk2F+9Q==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   eslint-scope@8.4.0:
     resolution: {integrity: sha512-sNXOfKCn74rt8RICKMvJS7XKV/Xk9kA7DyJr8mJik3S7Cwgy3qlkkmyS2uQB3jiJg6VNdZd/pDBJu0nvG2NlTg==}
@@ -982,6 +989,8 @@ snapshots:
   escalade@3.1.2: {}
 
   escape-string-regexp@4.0.0: {}
+
+  eslint-formatter-junit@9.0.1: {}
 
   eslint-scope@8.4.0:
     dependencies:
